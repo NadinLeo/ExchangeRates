@@ -14,6 +14,11 @@
 		FD8315AC237573AF00A3B9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8315AB237573AF00A3B9FC /* Assets.xcassets */; };
 		FD8315AF237573AF00A3B9FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8315AE237573AF00A3B9FC /* Preview Assets.xcassets */; };
 		FD8315B2237573AF00A3B9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8315B0237573AF00A3B9FC /* LaunchScreen.storyboard */; };
+		FD8315BA23757C4700A3B9FC /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315B923757C4700A3B9FC /* ChartModel.swift */; };
+		FD8315BC23757F6200A3B9FC /* chart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = FD8315BB23757F6100A3B9FC /* chart_data.json */; };
+		FD8315BE2375828B00A3B9FC /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315BD2375828B00A3B9FC /* ChartData.swift */; };
+		FD8315C02375A56D00A3B9FC /* LineSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315BF2375A56D00A3B9FC /* LineSetModel.swift */; };
+		FD8315C32375BA8200A3B9FC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315C22375BA8200A3B9FC /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		FD8315AE237573AF00A3B9FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FD8315B1237573AF00A3B9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD8315B3237573AF00A3B9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD8315B923757C4700A3B9FC /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		FD8315BB23757F6100A3B9FC /* chart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chart_data.json; sourceTree = "<group>"; };
+		FD8315BD2375828B00A3B9FC /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		FD8315BF2375A56D00A3B9FC /* LineSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSetModel.swift; sourceTree = "<group>"; };
+		FD8315C22375BA8200A3B9FC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +68,12 @@
 		FD8315A1237573AC00A3B9FC /* ExchangeRates */ = {
 			isa = PBXGroup;
 			children = (
+				FD8315C12375ACAE00A3B9FC /* Model */,
 				FD8315A2237573AC00A3B9FC /* AppDelegate.swift */,
 				FD8315A4237573AC00A3B9FC /* SceneDelegate.swift */,
 				FD8315A9237573AC00A3B9FC /* ContentView.swift */,
 				FD8315AB237573AF00A3B9FC /* Assets.xcassets */,
+				FD8315BB23757F6100A3B9FC /* chart_data.json */,
 				FD8315B0237573AF00A3B9FC /* LaunchScreen.storyboard */,
 				FD8315B3237573AF00A3B9FC /* Info.plist */,
 				FD8315A6237573AC00A3B9FC /* ExchangeRates.xcdatamodeld */,
@@ -76,6 +88,17 @@
 				FD8315AE237573AF00A3B9FC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD8315C12375ACAE00A3B9FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD8315B923757C4700A3B9FC /* ChartModel.swift */,
+				FD8315BF2375A56D00A3B9FC /* LineSetModel.swift */,
+				FD8315BD2375828B00A3B9FC /* ChartData.swift */,
+				FD8315C22375BA8200A3B9FC /* StringExtension.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +161,7 @@
 			files = (
 				FD8315B2237573AF00A3B9FC /* LaunchScreen.storyboard in Resources */,
 				FD8315AF237573AF00A3B9FC /* Preview Assets.xcassets in Resources */,
+				FD8315BC23757F6200A3B9FC /* chart_data.json in Resources */,
 				FD8315AC237573AF00A3B9FC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8315BA23757C4700A3B9FC /* ChartModel.swift in Sources */,
+				FD8315BE2375828B00A3B9FC /* ChartData.swift in Sources */,
 				FD8315A8237573AC00A3B9FC /* ExchangeRates.xcdatamodeld in Sources */,
 				FD8315A3237573AC00A3B9FC /* AppDelegate.swift in Sources */,
+				FD8315C32375BA8200A3B9FC /* StringExtension.swift in Sources */,
+				FD8315C02375A56D00A3B9FC /* LineSetModel.swift in Sources */,
 				FD8315AA237573AC00A3B9FC /* ContentView.swift in Sources */,
 				FD8315A5237573AC00A3B9FC /* SceneDelegate.swift in Sources */,
 			);
