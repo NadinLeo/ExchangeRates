@@ -10,10 +10,10 @@ import UIKit
 
 struct ChartData {
     
-    lazy var columns: Chart = load("chart_data.json")
-    lazy var lines: Lines = addID( charts: columns.compactMap { convertToInternalModel($0)})
+    static var columns: Chart = load("chart_data.json")
+    static var chartsData: Lines = addID( charts: columns.compactMap { convertToInternalModel($0)})
     
-    func load<T: Decodable>(_ fileName: String) -> T {
+    static func load<T: Decodable>(_ fileName: String) -> T {
         guard let file = Bundle.main.url(forResource: fileName, withExtension: nil) else {
             fatalError("Could not be found file \(fileName) in main bundle.")
         }
@@ -36,7 +36,7 @@ struct ChartData {
         }
     }
     
-    func addID(charts : [LinesSet] ) -> [LinesSet] {
+    static func addID(charts : [LinesSet] ) -> [LinesSet] {
         var i = 0
         var newCharts = [LinesSet]()
         for chart in charts {
@@ -50,7 +50,7 @@ struct ChartData {
         return newCharts
     }
     
-    func convertToInternalModel(_ chart: ChartElement) -> LinesSet {
+    static func convertToInternalModel(_ chart: ChartElement) -> LinesSet {
         var nameLine = ""
         var values = [Int]()
         var graph = LinesSet(id: 1)

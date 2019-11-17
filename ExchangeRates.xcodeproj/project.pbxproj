@@ -19,6 +19,10 @@
 		FD8315BE2375828B00A3B9FC /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315BD2375828B00A3B9FC /* ChartData.swift */; };
 		FD8315C02375A56D00A3B9FC /* LineSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315BF2375A56D00A3B9FC /* LineSetModel.swift */; };
 		FD8315C32375BA8200A3B9FC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315C22375BA8200A3B9FC /* StringExtension.swift */; };
+		FDB99AF2237CA64400D2217F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF1237CA64400D2217F /* UserData.swift */; };
+		FDB99AF4237CAD5F00D2217F /* RangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF3237CAD5F00D2217F /* RangeView.swift */; };
+		FDB99AF6238157AB00D2217F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF5238157AB00D2217F /* GraphView.swift */; };
+		FDB99AF823817B6F00D2217F /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF723817B6F00D2217F /* Graph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		FD8315BD2375828B00A3B9FC /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		FD8315BF2375A56D00A3B9FC /* LineSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSetModel.swift; sourceTree = "<group>"; };
 		FD8315C22375BA8200A3B9FC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		FDB99AF1237CA64400D2217F /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		FDB99AF3237CAD5F00D2217F /* RangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeView.swift; sourceTree = "<group>"; };
+		FDB99AF5238157AB00D2217F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		FDB99AF723817B6F00D2217F /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,9 @@
 				FD8315C12375ACAE00A3B9FC /* Model */,
 				FD8315A2237573AC00A3B9FC /* AppDelegate.swift */,
 				FD8315A4237573AC00A3B9FC /* SceneDelegate.swift */,
+				FDB99AF3237CAD5F00D2217F /* RangeView.swift */,
+				FDB99AF5238157AB00D2217F /* GraphView.swift */,
+				FDB99AF723817B6F00D2217F /* Graph.swift */,
 				FD8315A9237573AC00A3B9FC /* ContentView.swift */,
 				FD8315AB237573AF00A3B9FC /* Assets.xcassets */,
 				FD8315BB23757F6100A3B9FC /* chart_data.json */,
@@ -78,6 +89,7 @@
 				FD8315B3237573AF00A3B9FC /* Info.plist */,
 				FD8315A6237573AC00A3B9FC /* ExchangeRates.xcdatamodeld */,
 				FD8315AD237573AF00A3B9FC /* Preview Content */,
+				FDB99AF1237CA64400D2217F /* UserData.swift */,
 			);
 			path = ExchangeRates;
 			sourceTree = "<group>";
@@ -173,14 +185,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB99AF823817B6F00D2217F /* Graph.swift in Sources */,
 				FD8315BA23757C4700A3B9FC /* ChartModel.swift in Sources */,
 				FD8315BE2375828B00A3B9FC /* ChartData.swift in Sources */,
 				FD8315A8237573AC00A3B9FC /* ExchangeRates.xcdatamodeld in Sources */,
+				FDB99AF6238157AB00D2217F /* GraphView.swift in Sources */,
+				FDB99AF2237CA64400D2217F /* UserData.swift in Sources */,
 				FD8315A3237573AC00A3B9FC /* AppDelegate.swift in Sources */,
 				FD8315C32375BA8200A3B9FC /* StringExtension.swift in Sources */,
 				FD8315C02375A56D00A3B9FC /* LineSetModel.swift in Sources */,
 				FD8315AA237573AC00A3B9FC /* ContentView.swift in Sources */,
 				FD8315A5237573AC00A3B9FC /* SceneDelegate.swift in Sources */,
+				FDB99AF4237CAD5F00D2217F /* RangeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
