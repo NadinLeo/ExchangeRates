@@ -23,6 +23,7 @@
 		FDB99AF4237CAD5F00D2217F /* RangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF3237CAD5F00D2217F /* RangeView.swift */; };
 		FDB99AF6238157AB00D2217F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF5238157AB00D2217F /* GraphView.swift */; };
 		FDB99AF823817B6F00D2217F /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF723817B6F00D2217F /* Graph.swift */; };
+		FDB99AFA2381A02E00D2217F /* GraphsForChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99AF92381A02E00D2217F /* GraphsForChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FDB99AF3237CAD5F00D2217F /* RangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeView.swift; sourceTree = "<group>"; };
 		FDB99AF5238157AB00D2217F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		FDB99AF723817B6F00D2217F /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		FDB99AF92381A02E00D2217F /* GraphsForChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsForChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				FD8315A4237573AC00A3B9FC /* SceneDelegate.swift */,
 				FDB99AF3237CAD5F00D2217F /* RangeView.swift */,
 				FDB99AF5238157AB00D2217F /* GraphView.swift */,
+				FDB99AF92381A02E00D2217F /* GraphsForChart.swift */,
 				FDB99AF723817B6F00D2217F /* Graph.swift */,
 				FD8315A9237573AC00A3B9FC /* ContentView.swift */,
 				FD8315AB237573AF00A3B9FC /* Assets.xcassets */,
@@ -189,6 +192,7 @@
 				FD8315BA23757C4700A3B9FC /* ChartModel.swift in Sources */,
 				FD8315BE2375828B00A3B9FC /* ChartData.swift in Sources */,
 				FD8315A8237573AC00A3B9FC /* ExchangeRates.xcdatamodeld in Sources */,
+				FDB99AFA2381A02E00D2217F /* GraphsForChart.swift in Sources */,
 				FDB99AF6238157AB00D2217F /* GraphView.swift in Sources */,
 				FDB99AF2237CA64400D2217F /* UserData.swift in Sources */,
 				FD8315A3237573AC00A3B9FC /* AppDelegate.swift in Sources */,
