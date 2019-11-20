@@ -8,6 +8,13 @@
 
 import SwiftUI
 
+func rangeOfRanges<C:Collection>(_ ranges:C)->Range<Int> where C.Element == Range<Int> {
+    guard !ranges.isEmpty else {return 0..<1}
+    let low = ranges.lazy.map{$0.lowerBound}.min()!
+    let hight = ranges.lazy.map{$0.upperBound}.max()!
+    return low..<hight
+}
+
 struct GraphsForChart: View {
     var chart: LinesSet
     var rangeTime: Range<Int>
@@ -26,13 +33,8 @@ struct GraphsForChart: View {
         }.drawingGroup()
     }
     
-    func rangeOfRanges<C:Collection>(_ ranges:C)->Range<Int> where C.Element == Range<Int> {
-            guard !ranges.isEmpty else {return 0..<1}
-            let low = ranges.lazy.map{$0.lowerBound}.min()!
-            let hight = ranges.lazy.map{$0.upperBound}.max()!
-            return low..<hight
-        }
-    }
+    
+}
 
 struct GraphsForChart_Previews: PreviewProvider {
     static var previews: some View {
