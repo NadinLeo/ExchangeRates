@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Exchanger: View {
     @ObservedObject var model: ExchangerModel
-
+    
     var inputFirstStr : Binding<String> {
         Binding<String>(
             get: { "\(self.model.firstInput)" },
@@ -18,28 +18,38 @@ struct Exchanger: View {
                 if let value = NumberFormatter().number(from: $0) {
                     self.model.firstInput = value.doubleValue
                 }
-            })
+        })
+    }
+    
+    var inputSecondStr : Binding<String> {
+        Binding<String>(
+            get: { "\(self.model.secondInput)" },
+            set: {
+                if let value = NumberFormatter().number(from: $0) {
+                    self.model.secondInput = value.doubleValue
+                }
+        })
     }
     
     
-//    @State var inputFirst: Double = 1 {
-//        didSet {
-//            print("Hello from UI")
-//            //            guard let currencyFirst = currencyFirst else { return }
-//            //            inputSecond = handleInput(changedCurrency: currencyFirst, inputValue: Double(inputFirst) as! Double) as! String
-//        }
-//    }
-//    @State var inputSecond: Double = 1 {
-//        didSet {
-//            //            guard let currencySecond = currencySecond else { return }
-//            //            inputFirst = handleInput(changedCurrency: currencySecond, inputValue: Double(inputSecond) as! Double) as! String
-//        }
-//    }
+    //    @State var inputFirst: Double = 1 {
+    //        didSet {
+    //            print("Hello from UI")
+    //            //            guard let currencyFirst = currencyFirst else { return }
+    //            //            inputSecond = handleInput(changedCurrency: currencyFirst, inputValue: Double(inputFirst) as! Double) as! String
+    //        }
+    //    }
+    //    @State var inputSecond: Double = 1 {
+    //        didSet {
+    //            //            guard let currencySecond = currencySecond else { return }
+    //            //            inputFirst = handleInput(changedCurrency: currencySecond, inputValue: Double(inputSecond) as! Double) as! String
+    //        }
+    //    }
     
-//    func handleInput(changedCurrency: CurrencyModel, inputValue: Double) -> Double {
-//        let byCurrency = changedCurrency.convertTo(byCurrency: inputValue)
-//        return changedCurrency.getValue(from: byCurrency)
-//    }
+    //    func handleInput(changedCurrency: CurrencyModel, inputValue: Double) -> Double {
+    //        let byCurrency = changedCurrency.convertTo(byCurrency: inputValue)
+    //        return changedCurrency.getValue(from: byCurrency)
+    //    }
     
     var body: some View {
         VStack {
@@ -65,15 +75,26 @@ struct Exchanger: View {
                            alignment: .trailing)
                 
             }.padding()
-//            HStack
-//                {
-//                    CurrencyButton(stringCurrencyCode: self.$model.currencySecond?.currencyCode ?? "default", currencyName: self.$model.currencySecond?.currencyName ?? "default")
-//                    Spacer()
-//                    TextField("Input value", value: model.secondInput, formatter: NumberFormatter())
-//                        .multilineTextAlignment(.trailing)
-//                        .keyboardType(.numberPad)
-//                        .frame(width: CGFloat(integerLiteral: 100), height: nil, alignment: .trailing)
-//            }.padding()
+            HStack {
+                CurrencyButton(
+                    stringCurrencyCode: self
+                        .$model
+                        .currencySecond
+                        .wrappedValue?
+                        .currencyCode ?? "default",
+                    currencyName: self
+                        .$model
+                        .currencySecond
+                        .wrappedValue?
+                        .currencyName ?? "default")
+                Spacer()
+                TextField("Input value", text: inputSecondStr)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.numberPad)
+                    .frame(width: CGFloat(integerLiteral: 100),
+                           height: nil,
+                           alignment: .trailing)
+            }.padding()
         }
     }
 }
