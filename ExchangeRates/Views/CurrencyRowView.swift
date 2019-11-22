@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CurrencyRow: View {
+struct CurrencyRowView: View {
     var currencyModel: CurrencyModel
     
 
@@ -40,7 +40,7 @@ struct CurrencyRow: View {
 
 struct CurrencyRow_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyRow(currencyModel: CurrencyModel(id: 1,
+        CurrencyRowView(currencyModel: CurrencyModel(id: 1,
                                                  currencyId: 1,
                                                  currencyName: "RUB",
                                                  currencyCode: "RUB",

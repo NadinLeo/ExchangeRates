@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var exchangeData: ExchangerModel
     var body: some View {
-        Exchanger(model: self.exchangeData)
+        ExchangerView(model: self.exchangeData)
     }
 }
 

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CurrencyButton: View {
+struct CurrencyButtonView: View {
     let stringCurrencyCode: String
     let currencyName: String
     
@@ -33,6 +33,6 @@ struct CurrencyButton: View {
 
 struct CurrencyButton_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyButton(stringCurrencyCode: "BGN", currencyName: "Euro")
+        CurrencyButtonView(stringCurrencyCode: "BGN", currencyName: "Euro")
     }
 }

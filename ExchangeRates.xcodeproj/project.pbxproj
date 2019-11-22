@@ -11,8 +11,8 @@
 		FD21DF872387D58400B573A6 /* CurrencyManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF862387D58400B573A6 /* CurrencyManagerProtocol.swift */; };
 		FD21DF8A2387D5D900B573A6 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF892387D5D900B573A6 /* NotificationNameExtensions.swift */; };
 		FD21DF8D2387D91500B573A6 /* CurrencyManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF8C2387D91500B573A6 /* CurrencyManagerStub.swift */; };
-		FD21DF8F2387F00D00B573A6 /* CurrencyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF8E2387F00D00B573A6 /* CurrencyRow.swift */; };
-		FD21DF922387FE4A00B573A6 /* CurrencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF912387FE4A00B573A6 /* CurrencyList.swift */; };
+		FD21DF8F2387F00D00B573A6 /* CurrencyRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF8E2387F00D00B573A6 /* CurrencyRowView.swift */; };
+		FD21DF922387FE4A00B573A6 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21DF912387FE4A00B573A6 /* CurrencyListView.swift */; };
 		FD8315A3237573AC00A3B9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315A2237573AC00A3B9FC /* AppDelegate.swift */; };
 		FD8315A5237573AC00A3B9FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8315A4237573AC00A3B9FC /* SceneDelegate.swift */; };
 		FD8315A8237573AC00A3B9FC /* ExchangeRates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD8315A6237573AC00A3B9FC /* ExchangeRates.xcdatamodeld */; };
@@ -38,8 +38,8 @@
 		FDB99B08238322FF00D2217F /* CurrencyDynamicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B07238322FF00D2217F /* CurrencyDynamicModel.swift */; };
 		FDB99B0B238326BE00D2217F /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B0A238326BE00D2217F /* CurrencyManager.swift */; };
 		FDB99B0D2385D51400D2217F /* ConvertionRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B0C2385D51400D2217F /* ConvertionRates.swift */; };
-		FDB99B2F23867B2300D2217F /* Exchanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B2E23867B2300D2217F /* Exchanger.swift */; };
-		FDB99B3223867F3800D2217F /* CurrencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B3123867F3800D2217F /* CurrencyButton.swift */; };
+		FDB99B2F23867B2300D2217F /* ExchangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B2E23867B2300D2217F /* ExchangerView.swift */; };
+		FDB99B3223867F3800D2217F /* CurrencyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B3123867F3800D2217F /* CurrencyButtonView.swift */; };
 		FDB99B3423868A7600D2217F /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB99B3323868A7600D2217F /* CurrencyModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +48,8 @@
 		FD21DF862387D58400B573A6 /* CurrencyManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManagerProtocol.swift; sourceTree = "<group>"; };
 		FD21DF892387D5D900B573A6 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		FD21DF8C2387D91500B573A6 /* CurrencyManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManagerStub.swift; sourceTree = "<group>"; };
-		FD21DF8E2387F00D00B573A6 /* CurrencyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRow.swift; sourceTree = "<group>"; };
-		FD21DF912387FE4A00B573A6 /* CurrencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyList.swift; sourceTree = "<group>"; };
+		FD21DF8E2387F00D00B573A6 /* CurrencyRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRowView.swift; sourceTree = "<group>"; };
+		FD21DF912387FE4A00B573A6 /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		FD83159F237573AC00A3B9FC /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8315A2237573AC00A3B9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD8315A4237573AC00A3B9FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 		FDB99B07238322FF00D2217F /* CurrencyDynamicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDynamicModel.swift; sourceTree = "<group>"; };
 		FDB99B0A238326BE00D2217F /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		FDB99B0C2385D51400D2217F /* ConvertionRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertionRates.swift; sourceTree = "<group>"; };
-		FDB99B2E23867B2300D2217F /* Exchanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchanger.swift; sourceTree = "<group>"; };
-		FDB99B3123867F3800D2217F /* CurrencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyButton.swift; sourceTree = "<group>"; };
+		FDB99B2E23867B2300D2217F /* ExchangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangerView.swift; sourceTree = "<group>"; };
+		FDB99B3123867F3800D2217F /* CurrencyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyButtonView.swift; sourceTree = "<group>"; };
 		FDB99B3323868A7600D2217F /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,10 +215,10 @@
 		FDB99B3023867F2400D2217F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FDB99B2E23867B2300D2217F /* Exchanger.swift */,
-				FDB99B3123867F3800D2217F /* CurrencyButton.swift */,
-				FD21DF8E2387F00D00B573A6 /* CurrencyRow.swift */,
-				FD21DF912387FE4A00B573A6 /* CurrencyList.swift */,
+				FDB99B2E23867B2300D2217F /* ExchangerView.swift */,
+				FDB99B3123867F3800D2217F /* CurrencyButtonView.swift */,
+				FD21DF8E2387F00D00B573A6 /* CurrencyRowView.swift */,
+				FD21DF912387FE4A00B573A6 /* CurrencyListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,24 +296,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD21DF8A2387D5D900B573A6 /* NotificationNameExtensions.swift in Sources */,
-				FD21DF8F2387F00D00B573A6 /* CurrencyRow.swift in Sources */,
+				FD21DF8F2387F00D00B573A6 /* CurrencyRowView.swift in Sources */,
 				FDB99AF823817B6F00D2217F /* Graph.swift in Sources */,
 				FDB99B06238315ED00D2217F /* CurrencyDownloader.swift in Sources */,
 				FDB99B3423868A7600D2217F /* CurrencyModel.swift in Sources */,
 				FD21DF8D2387D91500B573A6 /* CurrencyManagerStub.swift in Sources */,
 				FD8315BA23757C4700A3B9FC /* ChartModel.swift in Sources */,
 				FD8315BE2375828B00A3B9FC /* ChartData.swift in Sources */,
-				FDB99B3223867F3800D2217F /* CurrencyButton.swift in Sources */,
+				FDB99B3223867F3800D2217F /* CurrencyButtonView.swift in Sources */,
 				FD8315A8237573AC00A3B9FC /* ExchangeRates.xcdatamodeld in Sources */,
 				FDB99AFA2381A02E00D2217F /* GraphsForChart.swift in Sources */,
 				FDB99B0B238326BE00D2217F /* CurrencyManager.swift in Sources */,
-				FDB99B2F23867B2300D2217F /* Exchanger.swift in Sources */,
+				FDB99B2F23867B2300D2217F /* ExchangerView.swift in Sources */,
 				FDB99AF6238157AB00D2217F /* GraphView.swift in Sources */,
 				FDB99AFF2383134F00D2217F /* Currency.swift in Sources */,
 				FDB99B0D2385D51400D2217F /* ConvertionRates.swift in Sources */,
 				FDB99AF2237CA64400D2217F /* UserData.swift in Sources */,
 				FD21DF872387D58400B573A6 /* CurrencyManagerProtocol.swift in Sources */,
-				FD21DF922387FE4A00B573A6 /* CurrencyList.swift in Sources */,
+				FD21DF922387FE4A00B573A6 /* CurrencyListView.swift in Sources */,
 				FDB99B08238322FF00D2217F /* CurrencyDynamicModel.swift in Sources */,
 				FD8315A3237573AC00A3B9FC /* AppDelegate.swift in Sources */,
 				FD8315C32375BA8200A3B9FC /* StringExtension.swift in Sources */,
