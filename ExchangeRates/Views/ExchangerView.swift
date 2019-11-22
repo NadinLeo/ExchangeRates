@@ -10,8 +10,9 @@ import SwiftUI
 
 struct ExchangerView: View {
     @ObservedObject var model: ExchangerModel
-    @State var isCurrencySelectorActive = false
-
+    @State var isCurrencyFirstSelectorActive = false
+    @State var isCurrencySecondSelectorActive = false
+    
     var inputFirst : Binding<String> {
         Binding<String>(
             get: { "\(self.model.firstInput)" },
@@ -39,19 +40,19 @@ struct ExchangerView: View {
                 HStack {
                     NavigationLink(destination: CurrencyListView(currencyModelList: model.curencuModelList) { newCurrencyModel in
                         self.model.currencyFirst = newCurrencyModel
-                        self.isCurrencySelectorActive = false
-                    }, isActive: self.$isCurrencySelectorActive) {
-                            CurrencyButtonView(
-                                stringCurrencyCode: self
-                                    .$model
-                                    .currencyFirst
-                                    .wrappedValue?
-                                    .currencyCode ?? "default",
-                                currencyName: self
-                                    .$model
-                                    .currencyFirst
-                                    .wrappedValue?
-                                    .currencyName ?? "default")
+                        self.isCurrencyFirstSelectorActive = false
+                    }, isActive: self.$isCurrencyFirstSelectorActive) {
+                        CurrencyButtonView(
+                            stringCurrencyCode: self
+                                .$model
+                                .currencyFirst
+                                .wrappedValue?
+                                .currencyCode ?? "default",
+                            currencyName: self
+                                .$model
+                                .currencyFirst
+                                .wrappedValue?
+                                .currencyName ?? "default")
                     }.buttonStyle(PlainButtonStyle())
                     Spacer()
                     TextField("Input value",
@@ -64,17 +65,23 @@ struct ExchangerView: View {
                     
                 }.padding()
                 HStack {
-                    CurrencyButtonView(
-                        stringCurrencyCode: self
-                            .$model
-                            .currencySecond
-                            .wrappedValue?
-                            .currencyCode ?? "default",
-                        currencyName: self
-                            .$model
-                            .currencySecond
-                            .wrappedValue?
-                            .currencyName ?? "default")
+                    NavigationLink(destination: CurrencyListView(currencyModelList: model.curencuModelList) { newCurrencyModel in
+                        self.model.currencySecond = newCurrencyModel
+                        self.isCurrencySecondSelectorActive = false
+                    }, isActive: self.$isCurrencySecondSelectorActive) {
+                        CurrencyButtonView(
+                            stringCurrencyCode: self
+                                .$model
+                                .currencySecond
+                                .wrappedValue?
+                                .currencyCode ?? "default",
+                            currencyName: self
+                                .$model
+                                .currencySecond
+                                .wrappedValue?
+                                .currencyName ?? "default")
+                    }.buttonStyle(PlainButtonStyle())
+                    
                     Spacer()
                     TextField("Input value", text: self.inputSecond)
                         .multilineTextAlignment(.trailing)
