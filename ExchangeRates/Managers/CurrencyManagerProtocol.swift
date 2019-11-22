@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol CurrencyManagerProtocol {
+    var currencyList: Dictionary<Int, String>{ get }
+    var currencyModelList: [CurrencyModel] { get }
+    func downloadCurrencyList()
+    func downloadConvertionRates()
+}

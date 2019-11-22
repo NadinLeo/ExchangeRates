@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension Notification.Name {
+    static let didReceiveData = Notification.Name("didReceiveData")
+    static let didReceiveRates = Notification.Name("didReceiveRates")
+    static let didCurrencyModelListCreated = Notification.Name("didCurrencyModelListCreated")
+}

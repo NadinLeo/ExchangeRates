@@ -9,18 +9,14 @@
 import SwiftUI
 
 struct Exchanger: View {
-    @ObservedObject model: ExchangerModel
-    let currencyFirst: CurrencyModel?
-    let currencySecond: CurrencyModel?
-    @State var inputFirst: Double = 23
-    @State var inputSecond: Double = 23
-    
+    @ObservedObject var model: ExchangerModel
+
     var inputFirstStr : Binding<String> {
         Binding<String>(
-            get: { "\(self.inputFirst)" },
+            get: { "\(self.model.firstInput)" },
             set: {
                 if let value = NumberFormatter().number(from: $0) {
-                    self.inputFirst = value.doubleValue
+                    self.model.firstInput = value.doubleValue
                 }
             })
     }
@@ -47,33 +43,34 @@ struct Exchanger: View {
     
     var body: some View {
         VStack {
-            Text("\(inputFirst)")
+            Text("\(self.$model.firstInput.wrappedValue)")
             HStack {
                 CurrencyButton(
-                    stringCurrencyCode: currencyFirst?.currencyCode ?? "default",
-                    currencyName: currencyFirst?.currencyName ?? "default")
+                    stringCurrencyCode: self.$model.currencyFirst.wrappedValue?.currencyCode ?? "default",
+                    currencyName: self.$model.currencyFirst.wrappedValue?.currencyName ?? "default")
                 Spacer()
-                TextField("Input value", text: inputFirstStr, onEditingChanged: {_ in print("Text was changed")})
+                TextField("Input value", text: inputFirstStr)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.numberPad)
                     .frame(width: CGFloat(integerLiteral: 100), height: nil, alignment: .trailing)
                 
             }.padding()
-            HStack
-                {
-                    CurrencyButton(stringCurrencyCode: currencySecond?.currencyCode ?? "default", currencyName: currencySecond?.currencyName ?? "default")
-                    Spacer()
-                    TextField("Input value", value: $inputSecond, formatter: NumberFormatter())
-                        .multilineTextAlignment(.trailing)
-                        .keyboardType(.numberPad)
-                        .frame(width: CGFloat(integerLiteral: 100), height: nil, alignment: .trailing)
-            }.padding()
+//            HStack
+//                {
+//                    CurrencyButton(stringCurrencyCode: self.$model.currencySecond?.currencyCode ?? "default", currencyName: self.$model.currencySecond?.currencyName ?? "default")
+//                    Spacer()
+//                    TextField("Input value", value: model.secondInput, formatter: NumberFormatter())
+//                        .multilineTextAlignment(.trailing)
+//                        .keyboardType(.numberPad)
+//                        .frame(width: CGFloat(integerLiteral: 100), height: nil, alignment: .trailing)
+//            }.padding()
         }
     }
 }
 
 struct Exchanger_Previews: PreviewProvider {
     static var previews: some View {
-        Exchanger(currencyFirst: CurrencyModel(id: 1, currencyId: 1, currencyName: "Italy", currencyCode: "BGN", curScale: 1, curOfficialRate: 1), currencySecond: CurrencyModel(id: 1, currencyId: 1, currencyName: "Italy", currencyCode: "IT", curScale: 1, curOfficialRate: 1), inputFirst: 1, inputSecond: 1)
+        let model = ExchangerModel(curManager: CurrencyManagerStub())
+        return Exchanger(model: model )
     }
 }

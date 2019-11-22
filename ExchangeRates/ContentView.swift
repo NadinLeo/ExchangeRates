@@ -11,13 +11,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var exchangeData: ExchangerModel
     var body: some View {
-        Exchanger(currencyFirst: self.exchangeData.currencyFirst, currencySecond: self.exchangeData.currencySecond, inputFirst: self.exchangeData.firstInput,
-                  inputSecond: self.exchangeData.secondInput)
+        Exchanger(model: self.exchangeData)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ExchangerModel(curManager: CurrencyManagerStub()))
     }
 }

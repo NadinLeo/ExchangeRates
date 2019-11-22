@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var data: ChartData = ChartData()
     
-    let exchangeData = ExchangerModel()
+    let exchangeData = ExchangerModel(curManager: CurrencyManager())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
