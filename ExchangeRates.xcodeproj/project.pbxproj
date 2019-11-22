@@ -107,6 +107,20 @@
 			path = Stubs;
 			sourceTree = "<group>";
 		};
+		FD21DF902387FCE300B573A6 /* Plots */ = {
+			isa = PBXGroup;
+			children = (
+				FDB99AF3237CAD5F00D2217F /* RangeView.swift */,
+				FDB99AF92381A02E00D2217F /* GraphsForChart.swift */,
+				FD8315BB23757F6100A3B9FC /* chart_data.json */,
+				FDB99AF723817B6F00D2217F /* Graph.swift */,
+				FDB99AF1237CA64400D2217F /* UserData.swift */,
+				FDB99AFB2381B10100D2217F /* IndicatorView.swift */,
+				FDB99AF5238157AB00D2217F /* GraphView.swift */,
+			);
+			path = Plots;
+			sourceTree = "<group>";
+		};
 		FD831596237573AC00A3B9FC = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +140,7 @@
 		FD8315A1237573AC00A3B9FC /* ExchangeRates */ = {
 			isa = PBXGroup;
 			children = (
+				FD21DF902387FCE300B573A6 /* Plots */,
 				FD21DF8B2387D89B00B573A6 /* Stubs */,
 				FD21DF882387D5A200B573A6 /* Extensions */,
 				FDB99B3023867F2400D2217F /* Views */,
@@ -135,19 +150,12 @@
 				FD8315C12375ACAE00A3B9FC /* Model */,
 				FD8315A2237573AC00A3B9FC /* AppDelegate.swift */,
 				FD8315A4237573AC00A3B9FC /* SceneDelegate.swift */,
-				FDB99AF3237CAD5F00D2217F /* RangeView.swift */,
-				FDB99AF5238157AB00D2217F /* GraphView.swift */,
-				FDB99AF92381A02E00D2217F /* GraphsForChart.swift */,
-				FDB99AFB2381B10100D2217F /* IndicatorView.swift */,
-				FDB99AF723817B6F00D2217F /* Graph.swift */,
 				FD8315A9237573AC00A3B9FC /* ContentView.swift */,
 				FD8315AB237573AF00A3B9FC /* Assets.xcassets */,
-				FD8315BB23757F6100A3B9FC /* chart_data.json */,
 				FD8315B0237573AF00A3B9FC /* LaunchScreen.storyboard */,
 				FD8315B3237573AF00A3B9FC /* Info.plist */,
 				FD8315A6237573AC00A3B9FC /* ExchangeRates.xcdatamodeld */,
 				FD8315AD237573AF00A3B9FC /* Preview Content */,
-				FDB99AF1237CA64400D2217F /* UserData.swift */,
 			);
 			path = ExchangeRates;
 			sourceTree = "<group>";
