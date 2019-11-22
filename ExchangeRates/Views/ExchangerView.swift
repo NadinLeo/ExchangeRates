@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ExchangerView: View {
     @ObservedObject var model: ExchangerModel
-    
+    @State var isCurrencySelectorActive = false
+
     var inputFirst : Binding<String> {
         Binding<String>(
             get: { "\(self.model.firstInput)" },
@@ -36,18 +37,21 @@ struct ExchangerView: View {
             VStack {
                 Text("\(self.$model.firstInput.wrappedValue)")
                 HStack {
-                    NavigationLink(destination: CurrencyListView(currencyList: model.curencuModelList)) {
-                        CurrencyButtonView(
-                            stringCurrencyCode: self
-                                .$model
-                                .currencyFirst
-                                .wrappedValue?
-                                .currencyCode ?? "default",
-                            currencyName: self
-                                .$model
-                                .currencyFirst
-                                .wrappedValue?
-                                .currencyName ?? "default")
+                    NavigationLink(destination: CurrencyListView(currencyModelList: model.curencuModelList) { newCurrencyModel in
+                        self.model.currencyFirst = newCurrencyModel
+                        self.isCurrencySelectorActive = false
+                    }, isActive: self.$isCurrencySelectorActive) {
+                            CurrencyButtonView(
+                                stringCurrencyCode: self
+                                    .$model
+                                    .currencyFirst
+                                    .wrappedValue?
+                                    .currencyCode ?? "default",
+                                currencyName: self
+                                    .$model
+                                    .currencyFirst
+                                    .wrappedValue?
+                                    .currencyName ?? "default")
                     }.buttonStyle(PlainButtonStyle())
                     Spacer()
                     TextField("Input value",

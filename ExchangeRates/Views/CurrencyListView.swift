@@ -9,12 +9,16 @@
 import SwiftUI
 
 struct CurrencyListView: View {
-    var currencyList: [CurrencyModel]
+    var currencyModelList: [CurrencyModel]
+    var currencySelected: (CurrencyModel) -> Void
+    
     var body: some View {
         NavigationView {
-            List(currencyList) {
+            List(currencyModelList) {
                 currencyModel in
-                CurrencyRowView(currencyModel: currencyModel)
+                CurrencyRowView(currencyModel: currencyModel).onTapGesture {
+                    self.currencySelected(currencyModel)
+                }
             }
         }
         .navigationBarTitle("Rates")
@@ -23,17 +27,18 @@ struct CurrencyListView: View {
 
 struct CurrencyList_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyListView(currencyList: [CurrencyModel(id: 1,
-                                                  currencyId: 1,
-                                                  currencyName: "RUB",
-                                                  currencyCode: "RUB",
-                                                  curScale: 100,
-                                                  curOfficialRate: 18),
-                                    CurrencyModel(id: 2,
-                                                  currencyId: 2,
-                                                  currencyName: "USA",
-                                                  currencyCode: "USD",
-                                                  curScale: 1,
-                                                  curOfficialRate: 2.3)])
+        CurrencyListView(currencyModelList: [CurrencyModel(id: 1,
+                                                           currencyId: 1,
+                                                           currencyName: "RUB",
+                                                           currencyCode: "RUB",
+                                                           curScale: 100,
+                                                           curOfficialRate: 18),
+                                             CurrencyModel(id: 2,
+                                                           currencyId: 2,
+                                                           currencyName: "USA",
+                                                           currencyCode: "USD",
+                                                           curScale: 1,
+                                                           curOfficialRate: 2.3)]){_ in
+        }
     }
 }
