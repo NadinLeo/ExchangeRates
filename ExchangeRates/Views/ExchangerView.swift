@@ -37,7 +37,11 @@ struct ExchangerView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("\(self.$model.firstInput.wrappedValue)")
+                Image("Label")
+                    .resizable()
+                    .scaledToFill()
+                    .padding(.bottom)
+                    .frame(width: 50.0, height: 50.0)
                 HStack {
                     NavigationLink(destination: CurrencyListView(currencyModelList: model.currencyModelList) { newCurrencyModel in
                         self.model.currencyFirst = newCurrencyModel
@@ -94,6 +98,9 @@ struct ExchangerView: View {
                 Spacer()
             }
         }
+        .navigationBarHidden(false)
+        .navigationBarTitle("Exchanger", displayMode: .large)
+        
     }
 }
 

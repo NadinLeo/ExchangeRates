@@ -29,7 +29,11 @@ struct CurrencyRowView: View {
             
             Spacer()
             
-            Text("\(currencyModel.curScale) \(currencyModel.currencyCode) = \(CurrencyFormatter.format(value: currencyModel.curOfficialRate) ?? "0") BYN")
+            VStack{
+                Text("\(currencyModel.curScale) \(currencyModel.currencyCode)")
+                Text("=")
+                Text("\(CurrencyFormatter.format(value: currencyModel.curOfficialRate) ?? "0") BYN")
+            }
         }.padding()
     }
 }

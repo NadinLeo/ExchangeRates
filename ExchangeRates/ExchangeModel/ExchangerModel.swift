@@ -10,7 +10,12 @@ import Foundation
 
 final class ExchangerModel: ObservableObject {
     private let curManager: CurrencyManagerProtocol
-    var currencyModelList: [CurrencyModel] = []
+    var currencyModelList: [CurrencyModel] = [CurrencyModel(id: 1,
+                                                            currencyId: 0,
+                                                            currencyName: "Беларусь",
+                                                            currencyCode: "BYN",
+                                                            curScale: 1,
+                                                            curOfficialRate: 1)]
     
     @Published var currencyFirst: CurrencyModel? {
         didSet {
@@ -65,7 +70,7 @@ final class ExchangerModel: ObservableObject {
     }
     
     @objc public func onDidCurrencyModelListCreated(_ notification: Notification) {
-        currencyModelList = curManager.currencyModelList
+        currencyModelList += curManager.currencyModelList
         currencyFirst = curManager.currencyModelList[0]
         currencySecond = curManager.currencyModelList[1]
     }
