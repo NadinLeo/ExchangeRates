@@ -10,28 +10,47 @@ import Foundation
 
 final class ExchangerModel: ObservableObject {
     private let curManager: CurrencyManagerProtocol
-    var curencuModelList: [CurrencyModel] = []
-    @Published var currencyFirst: CurrencyModel?
-    @Published var currencySecond: CurrencyModel?
+    var currencyModelList: [CurrencyModel] = []
+    
+    @Published var currencyFirst: CurrencyModel? {
+        didSet {
+            updateSecondInput()
+        }
+    }
+    
+    @Published var currencySecond: CurrencyModel? {
+        didSet {
+            updateFirstInput()
+        }
+    }
+    
     @Published var firstInput: Double = 20 {
         didSet{
-            let buCurrency = currencyFirst?.convertTo(byCurrency: firstInput)
-            let convertedValue = currencySecond?.getValue(from: buCurrency ?? 0) ?? 0
-            
-            if(convertedValue != secondInput) {
-                secondInput = convertedValue
-            }
+            updateSecondInput()
         }
     }
     
     @Published var secondInput: Double = 19 {
         didSet{
-            let buCurrency = currencySecond?.convertTo(byCurrency: secondInput)
-            let convertedValue = currencyFirst?.getValue(from: buCurrency ?? 0) ?? 0
-            
-            if (convertedValue != firstInput) {
-                firstInput = convertedValue
-            }
+            updateFirstInput()
+        }
+    }
+    
+    func updateFirstInput() {
+        let buCurrency = currencySecond?.convertTo(byCurrency: secondInput)
+        let convertedValue = currencyFirst?.getValue(from: buCurrency ?? 0) ?? 0
+        
+        if (convertedValue != firstInput) {
+            firstInput = convertedValue
+        }
+    }
+    
+    func updateSecondInput() {
+        let buCurrency = currencyFirst?.convertTo(byCurrency: firstInput)
+        let convertedValue = currencySecond?.getValue(from: buCurrency ?? 0) ?? 0
+        
+        if(convertedValue != secondInput) {
+            secondInput = convertedValue
         }
     }
     
@@ -46,7 +65,7 @@ final class ExchangerModel: ObservableObject {
     }
     
     @objc public func onDidCurrencyModelListCreated(_ notification: Notification) {
-        curencuModelList = curManager.currencyModelList
+        currencyModelList = curManager.currencyModelList
         currencyFirst = curManager.currencyModelList[0]
         currencySecond = curManager.currencyModelList[1]
     }

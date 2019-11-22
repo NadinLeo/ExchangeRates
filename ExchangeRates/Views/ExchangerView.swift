@@ -15,7 +15,7 @@ struct ExchangerView: View {
     
     var inputFirst : Binding<String> {
         Binding<String>(
-            get: { "\(self.model.firstInput)" },
+            get: { "\(CurrencyFormatter.format(value:self.model.firstInput) ?? "0")" },
             set: {
                 if let value = NumberFormatter().number(from: $0) {
                     self.model.firstInput = value.doubleValue
@@ -23,9 +23,10 @@ struct ExchangerView: View {
         })
     }
     
+    
     var inputSecond : Binding<String> {
         Binding<String>(
-            get: { "\(self.model.secondInput)" },
+            get: { "\(CurrencyFormatter.format(value:self.model.secondInput) ?? "0")" },
             set: {
                 if let value = NumberFormatter().number(from: $0) {
                     self.model.secondInput = value.doubleValue
@@ -38,7 +39,7 @@ struct ExchangerView: View {
             VStack {
                 Text("\(self.$model.firstInput.wrappedValue)")
                 HStack {
-                    NavigationLink(destination: CurrencyListView(currencyModelList: model.curencuModelList) { newCurrencyModel in
+                    NavigationLink(destination: CurrencyListView(currencyModelList: model.currencyModelList) { newCurrencyModel in
                         self.model.currencyFirst = newCurrencyModel
                         self.isCurrencyFirstSelectorActive = false
                     }, isActive: self.$isCurrencyFirstSelectorActive) {
@@ -65,7 +66,7 @@ struct ExchangerView: View {
                     
                 }.padding()
                 HStack {
-                    NavigationLink(destination: CurrencyListView(currencyModelList: model.curencuModelList) { newCurrencyModel in
+                    NavigationLink(destination: CurrencyListView(currencyModelList: model.currencyModelList) { newCurrencyModel in
                         self.model.currencySecond = newCurrencyModel
                         self.isCurrencySecondSelectorActive = false
                     }, isActive: self.$isCurrencySecondSelectorActive) {
@@ -90,6 +91,7 @@ struct ExchangerView: View {
                                height: nil,
                                alignment: .trailing)
                 }.padding()
+                Spacer()
             }
         }
     }

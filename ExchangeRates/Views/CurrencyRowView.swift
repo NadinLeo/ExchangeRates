@@ -13,11 +13,7 @@ struct CurrencyRowView: View {
     
 
     var body: some View {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencySymbol = ""
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
+        
         
         return HStack {
             Image(currencyModel.currencyCode)
@@ -33,7 +29,7 @@ struct CurrencyRowView: View {
             
             Spacer()
             
-            Text("\(currencyModel.curScale) \(currencyModel.currencyCode) = \(formatter.string(from: NSNumber(value: currencyModel.curOfficialRate)) ?? "0") BYN")
+            Text("\(currencyModel.curScale) \(currencyModel.currencyCode) = \(CurrencyFormatter.format(value: currencyModel.curOfficialRate) ?? "0") BYN")
         }.padding()
     }
 }
