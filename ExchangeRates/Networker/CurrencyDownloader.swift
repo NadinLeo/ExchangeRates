@@ -10,13 +10,25 @@ import Foundation
 
 protocol CurrencyDownloadable {
     var currency: Currencies? { get }
+    var conversionRates: ConversionRates? { get }
     func downloadCurency()
+    func dowloadConvertionRates()
+    
 }
 
 @objc
-class CurrencyDownloader:NSObject, CurrencyDownloadable {
+class CurrencyDownloader: NSObject, CurrencyDownloadable {
+    var conversionRates: ConversionRates? {
+        didSet {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .didReceiveRates, object: self)
+                print(self.conversionRates)
+            }
+        }
+    }
+    
     var currency: Currencies? {
-        didSet{
+        didSet {
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: .didReceiveData, object: self)
             }
@@ -34,12 +46,21 @@ class CurrencyDownloader:NSObject, CurrencyDownloadable {
             self.currency = try decoder.decode(Currencies.self, from: data)
         }
         catch{
-            print(error.localizedDescription)
             print(error)
         }
     }
     
-    func downloadPicture() -> Data {
-        return Data()
+    func dowloadConvertionRates() {
+           Downloader.shared.getData(by: "https://www.nbrb.by/api/exrates/rates?periodicity=0", callback: getConvertionRatesDataModel)
+       }
+    
+    private func getConvertionRatesDataModel(data:Data) {
+        do {
+            let decoder = JSONDecoder()
+            self.conversionRates = try decoder.decode(ConversionRates.self, from: data)
+        }
+        catch{
+            print(error)
+        }
     }
 }

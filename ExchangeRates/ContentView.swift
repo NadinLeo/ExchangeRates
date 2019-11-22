@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var exchangeData: ExchangerModel
     var body: some View {
-        Text("Hello, World!")
+        Exchanger(currencyFirst: self.exchangeData.currencyFirst, currencySecond: self.exchangeData.currencySecond, inputFirst: self.exchangeData.firstInput,
+                  inputSecond: self.exchangeData.secondInput)
     }
 }
 

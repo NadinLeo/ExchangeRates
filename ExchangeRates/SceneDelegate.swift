@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let contentView = ContentView().environment(\.managedObjectContext, context).environmentObject(UserData())
+
+        let contentView = ContentView().environment(\.managedObjectContext, context).environmentObject(UserData()).environmentObject((UIApplication.shared.delegate as! AppDelegate).exchangeData)
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

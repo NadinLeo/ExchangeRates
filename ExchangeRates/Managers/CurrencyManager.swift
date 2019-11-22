@@ -10,15 +10,20 @@ import Foundation
 
 protocol CurrencyCreating {
     var currencyList: Dictionary<Int, String>{ get set }
+    var currencyModelList: [CurrencyModel] { get }
     func getCurrencyList()
+    func getConvertionRates()
 }
 
 extension Notification.Name {
     static let didReceiveData = Notification.Name("didReceiveData")
+    static let didReceiveRates = Notification.Name("didReceiveRates")
+    static let didCurrencyModelListCreated = Notification.Name("didCurrencyModelListCreated")
 }
 
 @objc
 class CurrencyManager: NSObject, CurrencyCreating {
+    var currencyModelList: [CurrencyModel] = []
     var currencyList: Dictionary<Int, String> = [:]
     let currencyDowloader = CurrencyDownloader()
     
@@ -32,8 +37,23 @@ class CurrencyManager: NSObject, CurrencyCreating {
         print(currencyList)
     }
     
+    @objc open func onDidReceiveRates(_ notification: Notification)
+       {
+        guard let convertionRates = currencyDowloader.conversionRates else { return }
+           
+        currencyModelList = convertionRates.map{ CurrencyModel(id: $0.curID, currencyId: $0.curID, currencyName: $0.curName, currencyCode: $0.curAbbreviation, curScale: $0.curScale, curOfficialRate: $0.curOfficialRate) }
+
+           print(currencyModelList)
+        NotificationCenter.default.post(name: .didCurrencyModelListCreated, object: self)
+       }
+    
     func getCurrencyList() {
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData, object:nil)
         currencyDowloader.downloadCurency()
+    }
+    
+    func getConvertionRates() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveRates(_:)), name: .didReceiveRates, object:nil)
+        currencyDowloader.dowloadConvertionRates()
     }
 }
