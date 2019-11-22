@@ -13,7 +13,7 @@ class CurrencyManagerStub: CurrencyManagerProtocol {
         CurrencyModel(id: 1,
                       currencyId: 1,
                       currencyName: "Belarus",
-                      currencyCode: "BY",
+                      currencyCode: "BYN",
                       curScale: 1,
                       curOfficialRate: 1),
         CurrencyModel(id: 2,
