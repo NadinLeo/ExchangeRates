@@ -31,26 +31,6 @@ struct Exchanger: View {
         })
     }
     
-    
-    //    @State var inputFirst: Double = 1 {
-    //        didSet {
-    //            print("Hello from UI")
-    //            //            guard let currencyFirst = currencyFirst else { return }
-    //            //            inputSecond = handleInput(changedCurrency: currencyFirst, inputValue: Double(inputFirst) as! Double) as! String
-    //        }
-    //    }
-    //    @State var inputSecond: Double = 1 {
-    //        didSet {
-    //            //            guard let currencySecond = currencySecond else { return }
-    //            //            inputFirst = handleInput(changedCurrency: currencySecond, inputValue: Double(inputSecond) as! Double) as! String
-    //        }
-    //    }
-    
-    //    func handleInput(changedCurrency: CurrencyModel, inputValue: Double) -> Double {
-    //        let byCurrency = changedCurrency.convertTo(byCurrency: inputValue)
-    //        return changedCurrency.getValue(from: byCurrency)
-    //    }
-    
     var body: some View {
         VStack {
             Text("\(self.$model.firstInput.wrappedValue)")
