@@ -15,10 +15,25 @@ final class ExchangerModel: ObservableObject {
     @Published var currencySecond: CurrencyModel?
     @Published var firstInput: Double = 20 {
         didSet{
-            print("Hello!!!")
+            let buCurrency = currencyFirst?.convertTo(byCurrency: firstInput)
+            let convertedValue = currencySecond?.getValue(from: buCurrency ?? 0) ?? 0
+            
+            if(convertedValue != secondInput) {
+                secondInput = convertedValue
+            }
         }
     }
-    @Published var secondInput: Double = 19
+    
+    @Published var secondInput: Double = 19 {
+        didSet{
+            let buCurrency = currencySecond?.convertTo(byCurrency: secondInput)
+            let convertedValue = currencyFirst?.getValue(from: buCurrency ?? 0) ?? 0
+            
+            if (convertedValue != firstInput) {
+                firstInput = convertedValue
+            }
+        }
+    }
     
     init (curManager: CurrencyManagerProtocol) {
         self.curManager = curManager

@@ -11,7 +11,7 @@ import SwiftUI
 struct Exchanger: View {
     @ObservedObject var model: ExchangerModel
     
-    var inputFirstStr : Binding<String> {
+    var inputFirst : Binding<String> {
         Binding<String>(
             get: { "\(self.model.firstInput)" },
             set: {
@@ -21,7 +21,7 @@ struct Exchanger: View {
         })
     }
     
-    var inputSecondStr : Binding<String> {
+    var inputSecond : Binding<String> {
         Binding<String>(
             get: { "\(self.model.secondInput)" },
             set: {
@@ -47,7 +47,8 @@ struct Exchanger: View {
                         .wrappedValue?
                         .currencyName ?? "default")
                 Spacer()
-                TextField("Input value", text: inputFirstStr)
+                TextField("Input value",
+                          text: self.inputFirst)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.numberPad)
                     .frame(width: CGFloat(integerLiteral: 100),
@@ -68,7 +69,7 @@ struct Exchanger: View {
                         .wrappedValue?
                         .currencyName ?? "default")
                 Spacer()
-                TextField("Input value", text: inputSecondStr)
+                TextField("Input value", text: self.inputSecond)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.numberPad)
                     .frame(width: CGFloat(integerLiteral: 100),
