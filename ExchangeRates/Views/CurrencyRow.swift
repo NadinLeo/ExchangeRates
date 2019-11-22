@@ -33,7 +33,7 @@ struct CurrencyRow: View {
             
             Spacer()
             
-            Text("\(currencyModel.curScale) \(currencyModel.currencyName) = \(formatter.string(from: NSNumber(value: currencyModel.curOfficialRate)) ?? "0") BYN")
+            Text("\(currencyModel.curScale) \(currencyModel.currencyCode) = \(formatter.string(from: NSNumber(value: currencyModel.curOfficialRate)) ?? "0") BYN")
         }.padding()
     }
 }

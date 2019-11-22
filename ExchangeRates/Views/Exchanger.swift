@@ -32,50 +32,54 @@ struct Exchanger: View {
     }
     
     var body: some View {
-        VStack {
-            Text("\(self.$model.firstInput.wrappedValue)")
-            HStack {
-                CurrencyButton(
-                    stringCurrencyCode: self
-                        .$model
-                        .currencyFirst
-                        .wrappedValue?
-                        .currencyCode ?? "default",
-                    currencyName: self
-                        .$model
-                        .currencyFirst
-                        .wrappedValue?
-                        .currencyName ?? "default")
-                Spacer()
-                TextField("Input value",
-                          text: self.inputFirst)
-                    .multilineTextAlignment(.trailing)
-                    .keyboardType(.numberPad)
-                    .frame(width: CGFloat(integerLiteral: 100),
-                           height: nil,
-                           alignment: .trailing)
-                
-            }.padding()
-            HStack {
-                CurrencyButton(
-                    stringCurrencyCode: self
-                        .$model
-                        .currencySecond
-                        .wrappedValue?
-                        .currencyCode ?? "default",
-                    currencyName: self
-                        .$model
-                        .currencySecond
-                        .wrappedValue?
-                        .currencyName ?? "default")
-                Spacer()
-                TextField("Input value", text: self.inputSecond)
-                    .multilineTextAlignment(.trailing)
-                    .keyboardType(.numberPad)
-                    .frame(width: CGFloat(integerLiteral: 100),
-                           height: nil,
-                           alignment: .trailing)
-            }.padding()
+        NavigationView {
+                VStack {
+                    Text("\(self.$model.firstInput.wrappedValue)")
+                    HStack {
+                        NavigationLink(destination: CurrencyList(currencyList: model.curencuModelList)) {
+                        CurrencyButton(
+                            stringCurrencyCode: self
+                                .$model
+                                .currencyFirst
+                                .wrappedValue?
+                                .currencyCode ?? "default",
+                            currencyName: self
+                                .$model
+                                .currencyFirst
+                                .wrappedValue?
+                                .currencyName ?? "default")
+                        }.buttonStyle(PlainButtonStyle())
+                        Spacer()
+                        TextField("Input value",
+                                  text: self.inputFirst)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                            .frame(width: CGFloat(integerLiteral: 100),
+                                   height: nil,
+                                   alignment: .trailing)
+                        
+                    }.padding()
+                    HStack {
+                        CurrencyButton(
+                            stringCurrencyCode: self
+                                .$model
+                                .currencySecond
+                                .wrappedValue?
+                                .currencyCode ?? "default",
+                            currencyName: self
+                                .$model
+                                .currencySecond
+                                .wrappedValue?
+                                .currencyName ?? "default")
+                        Spacer()
+                        TextField("Input value", text: self.inputSecond)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                            .frame(width: CGFloat(integerLiteral: 100),
+                                   height: nil,
+                                   alignment: .trailing)
+                    }.padding()
+                }
         }
     }
 }

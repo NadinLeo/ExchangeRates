@@ -10,7 +10,7 @@ import Foundation
 
 final class ExchangerModel: ObservableObject {
     private let curManager: CurrencyManagerProtocol
-    
+    var curencuModelList: [CurrencyModel] = []
     @Published var currencyFirst: CurrencyModel?
     @Published var currencySecond: CurrencyModel?
     @Published var firstInput: Double = 20 {
@@ -46,6 +46,7 @@ final class ExchangerModel: ObservableObject {
     }
     
     @objc public func onDidCurrencyModelListCreated(_ notification: Notification) {
+        curencuModelList = curManager.currencyModelList
         currencyFirst = curManager.currencyModelList[0]
         currencySecond = curManager.currencyModelList[1]
     }

@@ -17,6 +17,7 @@ struct CurrencyList: View {
                 CurrencyRow(currencyModel: currencyModel)
             }
         }
+        .navigationBarTitle("Rates")
     }
 }
 
