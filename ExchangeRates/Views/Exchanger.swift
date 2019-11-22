@@ -46,13 +46,23 @@ struct Exchanger: View {
             Text("\(self.$model.firstInput.wrappedValue)")
             HStack {
                 CurrencyButton(
-                    stringCurrencyCode: self.$model.currencyFirst.wrappedValue?.currencyCode ?? "default",
-                    currencyName: self.$model.currencyFirst.wrappedValue?.currencyName ?? "default")
+                    stringCurrencyCode: self
+                        .$model
+                        .currencyFirst
+                        .wrappedValue?
+                        .currencyCode ?? "default",
+                    currencyName: self
+                        .$model
+                        .currencyFirst
+                        .wrappedValue?
+                        .currencyName ?? "default")
                 Spacer()
                 TextField("Input value", text: inputFirstStr)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.numberPad)
-                    .frame(width: CGFloat(integerLiteral: 100), height: nil, alignment: .trailing)
+                    .frame(width: CGFloat(integerLiteral: 100),
+                           height: nil,
+                           alignment: .trailing)
                 
             }.padding()
 //            HStack
