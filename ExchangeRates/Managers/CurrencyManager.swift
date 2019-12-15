@@ -10,11 +10,13 @@ import Foundation
 
 @objc
 class CurrencyManager: NSObject, CurrencyManagerProtocol {
-    var currencyModelList: [CurrencyModel] = []
+    var currencyModelList: CurrencyModels = []
     var currencyList: Dictionary<Int, String> = [:]
+    var dataSaving: DataSaving
     private let currencyDowloader = CurrencyDownloader()
     
-    override init() {
+    init(dataSaving: DataSaving) {
+        self.dataSaving = dataSaving
         super.init()
         
         NotificationCenter.default.addObserver(
@@ -51,6 +53,7 @@ class CurrencyManager: NSObject, CurrencyManagerProtocol {
             curOfficialRate: $0.curOfficialRate)
         }
         
+        dataSaving.saveCurrencyModels(currencyModels: currencyModelList)
         NotificationCenter.default.post(name: .didCurrencyModelListCreated, object: self)
     }
     

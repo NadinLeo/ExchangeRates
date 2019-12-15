@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CurrencyModel: Equatable, Identifiable  {
+struct CurrencyModel: Equatable, Identifiable, Codable {
     var id: Int
     var currencyId: Int
     var currencyName: String
@@ -27,3 +27,5 @@ struct CurrencyModel: Equatable, Identifiable  {
         return byCurrency * Double(curScale) / curOfficialRate
     }
 }
+
+typealias CurrencyModels = [CurrencyModel]

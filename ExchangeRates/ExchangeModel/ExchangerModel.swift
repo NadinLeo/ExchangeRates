@@ -10,12 +10,14 @@ import Foundation
 
 final class ExchangerModel: ObservableObject {
     private let curManager: CurrencyManagerProtocol
-    var currencyModelList: [CurrencyModel] = [CurrencyModel(id: 1,
+    private let mainCurrency: CurrencyModel = CurrencyModel(id: 1,
                                                             currencyId: 0,
                                                             currencyName: "Беларусь",
                                                             currencyCode: "BYN",
                                                             curScale: 1,
-                                                            curOfficialRate: 1)]
+                                                            curOfficialRate: 1)
+    
+    var currencyModelList: [CurrencyModel] = []
     
     @Published var currencyFirst: CurrencyModel? {
         didSet {
@@ -59,8 +61,12 @@ final class ExchangerModel: ObservableObject {
         }
     }
     
-    init (curManager: CurrencyManagerProtocol) {
+    init (curManager: CurrencyManagerProtocol,
+          storageDataGetter: DataGetting) {
         self.curManager = curManager
+        
+        updateModel(currencyModelList: storageDataGetter.getCurrencyModels())
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(onDidCurrencyModelListCreated(_:)),
@@ -70,8 +76,18 @@ final class ExchangerModel: ObservableObject {
     }
     
     @objc public func onDidCurrencyModelListCreated(_ notification: Notification) {
-        currencyModelList += curManager.currencyModelList
-        currencyFirst = curManager.currencyModelList[0]
-        currencySecond = curManager.currencyModelList[1]
+        updateModel(currencyModelList: curManager.currencyModelList)
+    }
+    
+    func updateModel(currencyModelList: CurrencyModels) {
+        self.currencyModelList = [mainCurrency] + currencyModelList
+        currencyFirst = self.currencyModelList[0]
+        
+        if (self.currencyModelList.count > 1) {
+            currencySecond = self.currencyModelList[1]
+        }
+        else {
+            currencySecond = self.currencyModelList[0]
+        }
     }
 }

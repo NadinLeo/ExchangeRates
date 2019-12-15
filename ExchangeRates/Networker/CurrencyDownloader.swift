@@ -54,7 +54,7 @@ class CurrencyDownloader: NSObject, CurrencyDownloadable {
            Downloader.shared.getData(by: "https://www.nbrb.by/api/exrates/rates?periodicity=0", callback: getConvertionRatesDataModel)
        }
     
-    private func getConvertionRatesDataModel(data:Data) {
+    private func getConvertionRatesDataModel(data: Data) {
         do {
             let decoder = JSONDecoder()
             self.conversionRates = try decoder.decode(ConversionRates.self, from: data)

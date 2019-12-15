@@ -106,7 +106,7 @@ struct ExchangerView: View {
 
 struct Exchanger_Previews: PreviewProvider {
     static var previews: some View {
-        let model = ExchangerModel(curManager: CurrencyManagerStub())
+        let model = ExchangerModel(curManager: CurrencyManagerStub(), storageDataGetter: UserDefaultsDataGetting())
         return ExchangerView(model: model )
     }
 }

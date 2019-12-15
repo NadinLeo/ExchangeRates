@@ -19,7 +19,7 @@ struct CurrencyListView: View {
                 CurrencyRowView(currencyModel: currencyModel).onTapGesture {
                     self.currencySelected(currencyModel)
                 }
-            }
+            }.listStyle(GroupedListStyle())
         }
         .navigationBarTitle("Rates")
     }
